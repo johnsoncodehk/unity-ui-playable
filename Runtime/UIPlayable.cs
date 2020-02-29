@@ -18,6 +18,9 @@ public class UIPlayable : MonoBehaviour
 #if UNITY_EDITOR
     void OnValidate()
     {
+        if (Application.isPlaying)
+            return;
+
         AnimatorController preview = animator.runtimeAnimatorController as AnimatorController;
         if (!preview || preview.name != "UIPlayable Preview")
         {
